@@ -18,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText namaEditText, jumlahEditText, kodeBarangEditText;
     private RadioButton goldRadioButton, silverRadioButton, biasaRadioButton;
     private Button prosesButton;
-    // Daftar harga setiap barang
     private Map<String, Integer> hargaBarangMap = new HashMap<>();
 
     @Override
@@ -34,12 +33,10 @@ public class MainActivity extends AppCompatActivity {
         biasaRadioButton = findViewById(R.id.biasaRadioButton);
         prosesButton = findViewById(R.id.prosesButton);
 
-        // Inisialisasi harga barang
         hargaBarangMap.put("PCO", 2730551);
         hargaBarangMap.put("AA5", 9999999);
         hargaBarangMap.put("SGS", 12999999);
 
-        // Atur agar hanya satu CheckBox yang dapat dicentang
         goldRadioButton.setOnClickListener(new View.OnClickListener() {@Override
         public void onClick(View v) {
             if (goldRadioButton.isChecked()) {

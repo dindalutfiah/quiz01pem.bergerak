@@ -34,10 +34,8 @@ public class TransaksiActivity extends AppCompatActivity {
         int totalHarga = intent.getIntExtra("totalHarga", 0);
         double diskonMember = intent.getDoubleExtra("diskonMember", 0); // Mengambil diskon member dari intent
 
-        // Menampilkan selamat datang dan tipe member
         welcomeTextView.setText("Selamat datang, " + nama + "!\nTipe Member: " + jenisMembership);
 
-        // Menampilkan rincian transaksi
         String transaksiDetail = "Transaksi hari ini:\n" +
                 "Kode Barang: " + kodeBarang + "\n" +
                 "Nama Barang: " + getNamaBarang(kodeBarang) + "\n" +
@@ -45,7 +43,6 @@ public class TransaksiActivity extends AppCompatActivity {
                 "Harga: " + hargaBarang + "\n" +
                 "Total Harga: " + formatRupiah(totalHarga) + "\n";
 
-        // Menambahkan diskon member
         double diskonPersen = 0;
         switch (jenisMembership) {
             case "Gold":
@@ -70,16 +67,13 @@ public class TransaksiActivity extends AppCompatActivity {
             totalHarga -= discountHarga;
         }
 
-        // Hitung total bayar
         int totalBayar = (int) (totalHarga - diskonMemberValue);
         transaksiDetail += "Jumlah Bayar: " + formatRupiah(totalBayar) + "\n";
 
         transaksiTextView.setText(transaksiDetail);
 
-        // Menampilkan ucapan terima kasih
         thanksTextView.setText("Terima kasih telah berbelanja disini!");
 
-        // Tombol untuk membagikan transaksi
         shareButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -95,7 +89,6 @@ public class TransaksiActivity extends AppCompatActivity {
     }
 
 
-    // Metode untuk mendapatkan nama barang berdasarkan kode barang
     private String getNamaBarang(String kodeBarang) {
         switch (kodeBarang) {
             case "PCO":
@@ -109,7 +102,6 @@ public class TransaksiActivity extends AppCompatActivity {
         }
     }
 
-    // Metode untuk mengubah harga menjadi format mata uang Rupiah
     private String formatRupiah(int harga) {
         NumberFormat formatRupiah = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
         return formatRupiah.format(harga);
