@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DindaLutfiahQuiz1</string>
+    <string-array name="barang_array">
+        <item>PCO - POCO M3</item>
+        <item>AA5 - Acer Aspire 5</item>
+        <item>SGS - Samsung Galaxy S</item>
+    </string-array>
+</resources>
